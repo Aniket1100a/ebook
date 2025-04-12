@@ -27,7 +27,7 @@ jsonpointer==2.1
 
 matplotlib==3.9.2
 
-mkl-service==2.4.0
+mkl-service>=2.4.0
 
 mrjob==0.7.4
 

@@ -1,0 +1,129 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="checkout">
+    <div class="container">
+        <h2 class="text-center mb-4">Your Cart</h2>
+
+        {% if cart_items %}
+        <div class="row">
+            {% for item in cart_items %}
+            <div class="col-md-3">
+                <div class="product-item">
+                    <figure class="product-style">
+                        {% if item.product.cover_image %}
+                        <a href="{% url 'core:book_detail' item.product.id %}">
+                            <img src="{{ item.product.cover_image.url }}" alt="{{ item.product.title }}" class="product-item img-fluid">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'core:book_detail' item.product.id %}">
+                            <img src="{% static 'assets/images/default_book_cover.jpg' %}" alt="Default Book Cover" class="product-item img-fluid">
+                        </a>
+                        {% endif %}
+
+                        <button type="button" class="remove-from-cart btn btn-danger btn-sm mt-2" data-product-id="{{ item.product.id }}">
+                            Remove
+                        </button>
+                    </figure>
+
+                    <figcaption class="text-center">
+                        <h3 class="book-title">{{ item.product.title }}</h3>
+                        <p class="book-author">Author: {{ item.product.author }}</p>
+                        <p class="book-price">Price: 
+                            {% if item.product.price == 0 %}
+                                <span class="text-success">Free</span>
+                            {% else %}
+                                ₹ {{ item.product.price }}
+                            {% endif %}
+                        </p>
+                        <p class="book-quantity">Quantity: {{ item.quantity }}</p>
+                    </figcaption>
+                </div>
+            </div>
+            {% endfor %}
+        </div><!-- row -->
+
+        <div class="text-center mt-4">
+            <h3>Total Amount: ₹ {{ total_price }}</h3>
+        </div>
+
+        {% if total_price > 0 %}
+            <div class="text-center mt-3">
+                <h4>Proceed to Payment</h4>
+                <button id="pay-button" class="btn btn-primary">Pay Now</button>
+            </div>
+        {% else %}
+            <div class="text-center mt-3">
+                <h4>Your books will be added to "My Library" as they are free.</h4>
+                <script>
+                    setTimeout(() => {
+                        window.location.href = "{% url 'core:library' %}";
+                    }, 2000);  // Redirects to "My Library" after 2 seconds
+                </script>
+                <p class="text-success">Redirecting to your library...</p>
+            </div>
+        {% endif %}
+
+        {% else %}
+        <p class="text-center text-muted">Your cart is empty.</p>
+        {% endif %}
+    </div><!-- container -->
+</section>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const payButton = document.getElementById("pay-button");
+
+    if (payButton) {
+        payButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            var options = {
+                "key": "{{ razorpay_key }}",
+                "amount": "{{ total_price|floatformat:2 }}00",
+                "currency": "INR",
+                "name": "Your Website Name",
+                "description": "Purchase Products",
+                "image": "{% static 'your-logo.png' %}",
+                "order_id": "{{ razorpay_order_id }}",
+                "handler": function (response) {
+                    fetch("{% url 'core:verify_payment' %}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": "{{ csrf_token }}"
+                        },
+                        body: JSON.stringify({
+                            "razorpay_payment_id": response.razorpay_payment_id,
+                            "razorpay_order_id": response.razorpay_order_id,
+                            "razorpay_signature": response.razorpay_signature
+                        })
+                    }).then(res => res.json()).then(data => {
+                        if (data.success) {
+                            window.location.href = "{% url 'core:library' %}";
+                        } else {
+                            alert("Payment verification failed. Please try again.");
+                        }
+                    }).catch(err => {
+                        alert("An error occurred. Please try again.");
+                    });
+                },
+                "prefill": {
+                    "name": "{{ request.user.get_full_name }}",
+                    "email": "{{ request.user.email }}"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+        });
+    }
+});
+</script>
+
+{% endblock %}

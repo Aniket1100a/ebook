@@ -1,0 +1,38 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+    <section id="about-us" class="py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center">
+                        <div class="title">
+                            <span>About Us</span>
+                        </div>
+                        <h2 class="section-title">Who We Are</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                {% for section in about_sections %}
+                <div class="row mb-4">
+                    <div class="col-md-12 text-center">  <!-- Added text-center here -->
+                        <h3>{{ section.title }}</h3>
+                        <p>{{ section.description }}</p>
+                        {% if section.image %}
+                            <img src="{{ section.image.url }}" alt="{{ section.title }}" class="img-fluid">
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <a href="{% url 'core:contact' %}" class="btn btn-primary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

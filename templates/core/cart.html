@@ -1,0 +1,72 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="cart" class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header align-center mb-4">
+                    <div class="title">
+                        <span>Your Shopping Cart</span>
+                    </div>
+                    <h2 class="section-title">Cart Items</h2>
+                </div>
+                
+                {% if cart_items %}
+                <div class="cart-list" data-aos="fade-up">
+                    <div class="row">
+                        {% for item in cart_items %}
+                        <div class="col-md-3">
+                            <div class="cart-item shadow-sm rounded mb-4">
+                                <figure class="cart-item-style">
+                                    <img src="{{ item.product.cover_image.url }}" alt="{{ item.product.title }}" class="cart-item-image img-fluid rounded">
+                                    <figcaption class="p-3">
+                                        <h5 class="text-dark">{{ item.product.title }}</h5>
+                                        <p class="text-muted mb-2">by {{ item.product.author }}</p>
+                                        <div class="item-price text-success">₹ {{ item.product.price }}</div>
+                                        <div class="text-secondary">Quantity: {{ item.quantity }}</div>
+                                    </figcaption>
+                                </figure>
+                                <div class="cart-item-actions text-center p-2">
+                                    <form method="POST" action="{% url 'core:remove_from_cart' item.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to remove this item?')">Remove</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="cart-summary text-right mt-4">
+                        <h4 class="font-weight-bold">Total Price: ₹ {{ total_price }}</h4>
+                        {% if total_price == 0 %}
+                        <form id="free-books-form" method="POST" action="{% url 'core:cart_order' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="free_books" value="true">
+                            <button type="submit" class="btn btn-success">Add to Library for Free</button>
+                        </form>
+                        {% else %}
+                        <button id="pay-button" class="btn btn-primary">Proceed to Payment</button>
+                        {% endif %}
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-center text-muted">Your cart is empty. Add some products to proceed.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Razorpay Payment Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    document.getElementById("pay-button").onclick = function(e) {
+        e.preventDefault();
+        window.location.href = "{% url 'core:checkout' %}";
+    };
+</script>
+    
+{% endblock %}

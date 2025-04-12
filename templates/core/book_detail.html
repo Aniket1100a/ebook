@@ -1,0 +1,53 @@
+{% extends 'partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section id="book-details" class="py-5 my-5" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center">
+                    <h2 class="section-title">{{ book.title }}</h2>
+                    <p class="book-author">By {{ book.author }}</p>
+                </div>
+
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    {% if book.cover_image %}
+                                        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-cover">
+                                    {% else %}
+                                        <img src="{% static 'assets/images/default_book_cover.jpg' %}" alt="Default Book Cover" class="book-cover">
+                                    {% endif %}
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <figcaption class="book-info">
+                                <p>{{ book.description }}</p>
+                                <div class="item-price">
+                                    ₹ {% if book.price == 0 %}Free{% else %}{{ book.price }}{% endif %}
+                                </div>
+
+                                <button type="button" class="add-to-cart btn btn-success btn-sm mt-2" data-product-id="{{ book.id }}">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section>
+
+
+
+
+{% endblock content %}

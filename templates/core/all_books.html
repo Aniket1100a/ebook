@@ -1,0 +1,79 @@
+{% extends 'partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- all_books.html -->
+<section id="all-books" class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center">
+                    <div class="title">
+                        <span>Explore our collection</span>
+                    </div>
+                    <h2 class="section-title">All Books</h2>
+                </div>
+
+                <!-- Search Form -->
+                <form method="get" action="{% url 'core:all_books' %}" class="mb-4" role="search">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" name="search" value="{{ search_query }}" class="form-control" placeholder="Search by title or author" aria-label="Search by title or author">
+                        </div>
+                        <div class="col-md-4">
+                            <select name="category" class="form-control" aria-label="Select category">
+                                <option value="">Select Category</option>
+                                {% for category in categories %}
+                                <option value="{{ category.title }}" {% if category_filter == category.title %}selected{% endif %}>{{ category.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary" aria-label="Apply filters">Filter</button>
+                        </div>
+                    </div>
+                </form>
+
+                {% if books.exists %}
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row">
+                        {% for book in books %}
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    {% if book.cover_image %}
+                                    <img src="{{ book.cover_image.url }}" alt="{{ book.title }} cover image" class="product-item">
+                                    {% else %}
+                                    <img src="{% static 'assets/images/default_book_cover.jpg' %}" alt="Default Book Cover" class="product-item">
+                                    {% endif %}
+
+                                    <button type="button" class="add-to-cart" data-product-id="{{ book.id }}" aria-label="Add {{ book.title }} to cart">
+                                        Add to Cart
+                                    </button>
+                                </figure>
+                                <figcaption>
+                                    <h3>{{ book.title }}</h3>
+                                    <span>{{ book.author }}</span>
+                                    <div class="item-price">
+                                        {% if book.get_offer_price == 0 %}
+                                            <span class="free-label">Free</span>
+                                        {% else %}
+                                            ₹ {{ book.get_offer_price }}
+                                        {% endif %}
+                                    </div>
+                                </figcaption>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- row -->
+                </div><!-- product-list -->
+                {% else %}
+                <p class="text-center text-muted">No books available. Try adjusting your filters or check back later!</p>
+                {% endif %}
+            </div><!-- col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section>
+
+{% endblock content %}

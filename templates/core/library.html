@@ -1,0 +1,72 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="library" class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header align-center mb-4">
+                    <div class="title">
+                        <span>Your Library</span>
+                    </div>
+                    <h2 class="section-title">Saved Books</h2>
+                </div>
+
+                {% if library_items %}
+                <div class="cart-list" data-aos="fade-up">
+                    <div class="row">
+                        {% for item in library_items %}
+                        <div class="col-md-3">
+                            <div class="cart-item shadow-sm rounded mb-4">
+                                <figure class="cart-item-style">
+                                    {% if item.product %}
+                                        <img src="{{ item.product.cover_image.url }}" alt="{{ item.product.title }}" class="cart-item-image img-fluid rounded">
+                                        <figcaption class="p-3">
+                                            <h5 class="text-dark">{{ item.product.title }}</h5>
+                                            <p class="text-muted mb-2">by {{ item.product.author }}</p>
+                                            <div class="item-price text-success">
+                                                {% if item.product.price == 0 %}
+                                                    Free
+                                                {% else %}
+                                                    ₹ {{ item.product.price }}
+                                                {% endif %}
+                                            </div>
+                                        </figcaption>
+                                    {% elif item.book %}
+                                        <img src="{{ item.book.cover_image.url }}" alt="{{ item.book.title }}" class="cart-item-image img-fluid rounded">
+                                        <figcaption class="p-3">
+                                            <h5 class="text-dark">{{ item.book.title }}</h5>
+                                            <p class="text-muted mb-2">by {{ item.book.author }}</p>
+                                            <div class="item-price text-success">
+                                                {% if item.book.price == 0 %}
+                                                    Free
+                                                {% else %}
+                                                    ₹ {{ item.book.price }}
+                                                {% endif %}
+                                            </div>
+                                        </figcaption>
+                                    {% endif %}
+                                </figure>
+                                <div class="cart-item-actions text-center p-2">
+                                    {% if item.product and item.product.pdf_file %}
+                                        <a href="{% url 'core:read_book' item.product.id %}" class="btn btn-primary btn-sm">Read</a>
+                                    {% elif item.book and item.book.pdf_file %}
+                                        <a href="{% url 'core:read_book' item.book.id %}" class="btn btn-primary btn-sm" target="_blank">Read</a>
+                                    {% else %}
+                                        <p class="text-muted small">No PDF available</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-center text-muted">Your library is empty. Start adding books to enjoy reading!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

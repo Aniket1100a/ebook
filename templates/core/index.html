@@ -1,0 +1,247 @@
+{% extends 'partials/base.html'%}
+
+{% load static %}
+{% block content %}
+<section id="billboard" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-slider pattern-overlay">
+                    {% if billboards.exists %}
+                        {% for item in billboards %}
+                        <div class="slider-item">
+                            <div class="billboard">
+                                <!-- Image on One Side -->
+                                <img src="{{ item.image.url }}" 
+                                     alt="{{ item.title }}" 
+                                     class="banner-image">
+                                
+                                <!-- Content on Other Side -->
+                                <div class="banner-content">
+                                    <h2 class="banner-title">{{ item.title }}</h2>
+                                    <p>{{ item.subtitle }}</p>
+                                    <div class="btn-wrap">
+                                        <a href="{% url 'core:all_books' %}" class="btn btn-outline-accent btn-accent-arrow">
+                                            Read More
+                                            <i class="icon icon-ns-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- slider-item -->
+                        {% endfor %}
+                    {% else %}
+                        <p>No billboard items available at the moment.</p>
+                    {% endif %}
+                </div><!-- main-slider -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-wrap align-right">
+            <a href="{% url 'core:all_books' %}" class="btn-accent-arrow">
+                View All Books <i class="icon icon-ns-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section id="featured-books" class="py-5 my-5" data-aos="fade-up" data-aos-duration="5000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center">
+                    <!-- <div class="title">
+                        <span>Some Quality Items</span>
+                    </div> -->
+                    <h2 class="section-title">Featured Books</h2>
+                </div>
+
+                {% if featured_books.exists %}
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row">
+                        {% for book in featured_books %}
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    {% if book.cover_image %}
+                                    <a href="{% url 'core:book_detail' book.id %}">
+                                        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-cover">
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'book_detail' book.id %}">
+                                        <img src="{% static 'assets/images/default_book_cover.jpg' %}" alt="Default Book Cover" class="book-cover">
+                                    </a>
+                                    {% endif %}
+
+                                    <button type="button" class="add-to-cart" data-product-id="{{ book.id }}">
+                                        Add to Cart
+                                    </button>
+                                </figure>
+                                <figcaption class="book-info">
+                                    <h3 class="book-title">{{ book.title }}</h3>
+                                    <span class="book-author">{{ book.author }}</span>
+                                    <div class="item-price">
+                                        {% if book.price == 0 %}
+                                            Free
+                                        {% else %}
+                                            ₹ {{ book.price }}
+                                        {% endif %}
+                                    </div>
+                                </figcaption>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- row -->
+                </div><!-- product-list -->
+                {% else %}
+                <p class="text-center text-muted">No featured books are currently available. Check back later!</p>
+                {% endif %}
+            </div><!-- col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section>
+
+
+<section id="popular-books" class="py-5 my-5" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center">
+                    <!-- <div class="title">
+                        <span>Some Quality Items</span>
+                    </div> -->
+                    <h2 class="section-title">Popular Books</h2>
+                </div>
+
+                {% if popular_books.exists %}
+                <div class="product-list" data-aos="fade-up">
+                    <div class="row">
+                        {% for book in popular_books %}
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    {% if book.cover_image %}
+                                    <a href="{% url 'core:book_detail' book.id %}">
+                                        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="book-cover">
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'book_detail' book.id %}">
+                                        <img src="{% static 'assets/images/default_book_cover.jpg' %}" alt="Default Book Cover" class="book-cover">
+                                    </a>
+                                    {% endif %}
+
+                                    <button type="button" class="add-to-cart" data-product-id="{{ book.id }}">
+                                        Add to Cart
+                                    </button>
+                                </figure>
+                                <figcaption class="book-info">
+                                    <h3 class="book-title">{{ book.title }}</h3>
+                                    <span class="book-author">{{ book.author }}</span>
+                                    <div class="item-price">
+                                        {% if book.price == 0 %}
+                                            Free
+                                        {% else %}
+                                            ₹ {{ book.price }}
+                                        {% endif %}
+                                    </div>
+                                </figcaption>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div><!-- row -->
+                </div><!-- product-list -->
+                {% else %}
+                <p class="text-center text-muted">No popular books are currently available. Check back later!</p>
+                {% endif %}
+            </div><!-- col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section>
+
+
+
+<section id="quotation" class="align-center pb-5 mb-5" data-aos="fade-up" data-aos-duration="1000" >
+    <div class="inner-content">
+        <h2 class="section-title divider">Quote of the day</h2>
+        <blockquote data-aos="fade-up">
+            <q>Books are the means by which we grow, and knowledge is the key to unlocking our true potential.</q>
+            <div class="author-name">Swami Vivekananda</div>
+        </blockquote>
+    </div>
+</section>
+
+<section id="latest-blog" class="py-5 my-5" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center">
+                    <div class="title">
+                        <span>Read our articles</span>
+                    </div>
+                    <h2 class="section-title">Latest Articles</h2>
+                </div>
+
+                <div class="row">
+                    {% for blog in blogs %}
+                        <div class="col-md-4">
+                            <article class="column" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:200 }}">
+                                <figure>
+                                    <a href="{% url 'core:blog_detail' bid=blog.bid %}" class="image-hvr-effect">
+                                        {% if blog.cover_image %}
+                                            <img src="{{ blog.cover_image.url }}" alt="{{ blog.title }}" class="post-image"
+                                                 loading="lazy"
+                                                 onerror="this.src='{% static 'assets/images/default_blog_image.jpg' %}'">
+                                        {% else %}
+                                            <img src="{% static 'assets/images/default_blog_image.jpg' %}" 
+                                                 alt="Default Image" class="post-image">
+                                        {% endif %}
+                                    </a>
+                                </figure>
+                                <div class="post-item">
+                                    <div class="meta-date">{{ blog.created_at|date:"M d, Y" }}</div>
+                                    <h3>
+                                        <a href="{% url 'core:blog_detail' bid=blog.bid %}">{{ blog.title }}</a>
+                                    </h3>
+                                    <div class="links-element">
+                                        <div class="categories">
+                                            By {{ blog.author.get_full_name|default:"Unknown Author" }}
+                                        </div>
+                                        <!-- <div class="social-links">
+                                            <ul>
+                                                <li><a href="#" aria-label="Share on Facebook">
+                                                    <i class="icon icon-facebook"></i></a></li>
+                                                <li><a href="#" aria-label="Share on Twitter">
+                                                    <i class="icon icon-twitter"></i></a></li>
+                                                <li><a href="#" aria-label="Share on Behance">
+                                                    <i class="icon icon-behance-square"></i></a></li>
+                                            </ul>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    {% empty %}
+                        <p class="text-center">No articles found.</p>
+                    {% endfor %}
+                </div>
+
+                <div class="row">
+                    <div class="btn-wrap text-center">
+                        <!-- <a href="{% url 'core:blog_list' %}" class="btn btn-outline-accent btn-accent-arrow">
+                            Read All Articles <i class="icon icon-ns-arrow-right"></i>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock content %}

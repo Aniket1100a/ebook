@@ -1,0 +1,149 @@
+<div class="col-md-3">
+    <!-- Business Books -->
+    {% if genre == "all-genre" or genre == "business" %}
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/dabbawala.jpg' %}" alt="Dabbawala" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>The Dabbawala System</h3>
+            <span>Shivani Bhatnagar</span>
+            <div class="item-price">₹ 1,200</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/tata.jpg' %}" alt="Tata" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>Small Wonder: Ratan Tata</h3>
+            <span>R.M. Lala</span>
+            <div class="item-price">₹ 1,600</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/you-can-win.jpg' %}" alt="You Can Win" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>You Can Win</h3>
+            <span>Shiv Khera</span>
+            <div class="item-price">₹ 1,000</div>
+        </figcaption>
+    </div>
+    {% endif %}
+
+    <!-- Technology Books -->
+    {% if genre == "all-genre" or genre == "technology" %}
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/indian-it.jpg' %}" alt="Indian IT" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>Indian IT Revolution</h3>
+            <span>Sunil Mani</span>
+            <div class="item-price">₹ 1,800</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/artificial-intelligence.jpg' %}" alt="AI" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>Artificial Intelligence</h3>
+            <span>Tom M. Mitchell</span>
+            <div class="item-price">₹ 2,000</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/digital-india.jpg' %}" alt="Digital India" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>Digital India</h3>
+            <span>Rohit Raj</span>
+            <div class="item-price">₹ 1,500</div>
+        </figcaption>
+    </div>
+    {% endif %}
+
+    <!-- Romantic Books -->
+    {% if genre == "all-genre" or genre == "romantic" %}
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/half-girlfriend.jpg' %}" alt="Half Girlfriend" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>Half Girlfriend</h3>
+            <span>Chetan Bhagat</span>
+            <div class="item-price">₹ 750</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/two-states.jpg' %}" alt="Two States" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>2 States</h3>
+            <span>Chetan Bhagat</span>
+            <div class="item-price">₹ 800</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/i-too-had-love-story.jpg' %}" alt="I Too Had a Love Story" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>I Too Had a Love Story</h3>
+            <span>Ravinder Singh</span>
+            <div class="item-price">₹ 700</div>
+        </figcaption>
+    </div>
+    {% endif %}
+
+    <!-- Adventure Books -->
+    {% if genre == "all-genre" or genre == "adventure" %}
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/shiva-trilogy.jpg' %}" alt="Shiva Trilogy" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>The Shiva Trilogy</h3>
+            <span>Amish Tripathi</span>
+            <div class="item-price">₹ 1,200</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/ravan.jpg' %}" alt="Ravan" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>Ravan: Enemy of Aryavarta</h3>
+            <span>Amish Tripathi</span>
+            <div class="item-price">₹ 1,300</div>
+        </figcaption>
+    </div>
+    <div class="product-item">
+        <figure class="product-style">
+            <img src="{% static 'assets/images/mahabharata-quest.jpg' %}" alt="Mahabharata Quest" class="product-item">
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        </figure>
+        <figcaption>
+            <h3>The Mahabharata Quest</h3>
+            <span>Christopher C. Doyle</span>
+            <div class="item-price">₹ 1,400</div>
+        </figcaption>
+    </div>
+    {% endif %}
+</div>

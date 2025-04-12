@@ -1,0 +1,251 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BookSaw - Free Book Store HTML CSS Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/foot.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style1.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'assets/css/library.css' %}"> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'assets/css/normalize.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icomoon/icomoon.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendor.css' %}"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/cart.css' %}">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+
+    <div id="header-wrap">
+        <!-- <div class="top-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="right-element ms-auto">
+                            <a href="#" class="user-account for-buy dropdown-toggle" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="icon icon-user"></i><span>Account</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item" href="{% url 'userauths:profile' %}"><i class="fa fa-user-circle"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'core:cart_view' %}"><i class="fa fa-shopping-cart"></i> View Cart</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'core:library' %}"><i class="fa fa-book"></i> My Library</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'userauths:sign-out' %}"><i class="fa fa-sign-out-alt"></i> Log Out</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'userauths:sign-in' %}"><i class="fa fa-sign-in-alt"></i> Sign In</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    
+        <header id="header">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <div class="main-logo">
+                            <a href="{% url 'core:index' %}"><img src="{% static 'assets/images/logo/text_logo.png' %}" alt="logo"></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-10 d-flex justify-content-between align-items-center">
+                        
+                        <nav id="navbar" class="w-100">
+                            <div class="main-menu stellarnav d-flex align-items-center justify-content-between">
+                                <ul class="menu-list d-flex align-items-center">
+                                    <li class="menu-item active"><a href="{% url 'core:index' %}">Home</a></li>
+                                    <li class="menu-item has-sub">
+                                        <a href="#pages" class="nav-link">Pages</a>
+                                        <ul>
+                                            <li class="active"><a href="{% url 'core:index' %}">Home</a></li>
+                                            <li><a href="{% url 'core:all_books' %}">All Books</a></li>
+                                            <li><a href="{% url 'core:about' %}">About</a></li>
+                                            <li><a href="{% url 'core:contact' %}">Contact</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
+                                    <li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
+                                    <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+
+                        <div class="search-bar">
+                            <i class="search-icon fas fa-search"></i> <!-- Font Awesome search icon -->
+                            <input type="text" placeholder="Search...">
+                            <button type="submit">Search</button>
+                        </div>
+
+                        
+
+                        <div class="right-element ms-auto">
+                            <a href="#" class="user-account for-buy dropdown-toggle" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="icon icon-user"></i><span>Account</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item" href="{% url 'userauths:profile' %}"><i class="fa fa-user-circle"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'core:cart_view' %}"><i class="fa fa-shopping-cart"></i> View Cart</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'core:library' %}"><i class="fa fa-book"></i> My Library</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'userauths:sign-out' %}"><i class="fa fa-sign-out-alt"></i> Log Out</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'userauths:sign-in' %}"><i class="fa fa-sign-in-alt"></i> Sign In</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% if messages %}
+                    <div id="message-container">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} fade show">
+                                <strong>{{ message }}</strong>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <script>
+                    $(document).ready(function() {
+                        $('#message-container .alert').each(function() {
+                            $(this).delay(5000).fadeOut(1000);
+                        });
+                    });
+                </script>
+            </div>
+        </header>
+    </div>
+    
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-item">
+                        <div class="company-brand">
+                            <img src="{% static 'assets/images/logo/text_logo.png' %}" alt="logo" class="footer-logo">
+                            <p>Explore a vast collection of e-books across all genres—from thrillers to sci-fi to romance. Whether you're a casual reader or a book enthusiast, Bookverse offers a seamless experience for discovering your next great read.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>About Us</h5>
+                        <ul class="menu-list1">
+                            <li class="menu-item"><a href="{% url 'core:about' %}">Vision</a></li>
+                            <li class="menu-item"><a href="#">Articles</a></li>
+                            <!-- <li class="menu-item"><a href="#">Service Terms</a></li>
+                            <li class="menu-item"><a href="#">Donate</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>Discover</h5>
+                        <ul class="menu-list1">
+                            <li class="menu-item"><a href="#">Home</a></li>
+                            <li class="menu-item"><a href="{% url 'core:all_books' %}">Books</a></li>
+                            <!-- <li class="menu-item"><a href="#">Authors</a></li> -->
+                            <!-- <li class="menu-item"><a href="#">Categories</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>My Account</h5>
+                        <ul class="menu-list1">
+                            <li class="menu-item"><a href="{% url 'userauths:sign-in' %}">Sign In</a></li>
+                            <li class="menu-item"><a href="{% url 'core:cart_view' %}">View Cart</a></li>
+                            <li class="menu-item"><a href="{% url 'userauths:profile' %}">My Profile</a></li>
+                             
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h5>Help</h5>
+                        <ul class="menu-list1">
+                            <li class="menu-item"><a href="#">Help Center</a></li>
+                            <li class="menu-item"><a href="#">Report a Problem</a></li>
+                            <li class="menu-item"><a href="{% url 'core:contact' %}">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>© 2022 All rights reserved. Created by <strong>Ani & Team</strong></p>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <div class="social-links align-right">
+                                    <ul>
+                                        <li><a href="#"><i class="icon icon-facebook"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-twitter"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-youtube-play"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-behance-square"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load jQuery from a single source -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-UG8ao2jwOWB7/oDdObZc6ItJmwUkR/PfMyt9Qs5AwX7PsnYn1CRKCTWyncPTWvaS" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap's JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+        crossorigin="anonymous"></script>
+
+    <!-- Other Plugins and Scripts -->
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'assets/js/cart.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+    
+    
+</body>
+
+</html>

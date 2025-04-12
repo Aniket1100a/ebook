@@ -1,0 +1,228 @@
+/* General Header Wrap */
+#header-wrap {
+    background-color: #4a2c14; /* Rich Dark Brown, Wood Texture Feel */
+    color: #f5e6cc; /* Warm Cream Color */
+    font-family: 'Merriweather', serif; /* Classic Library Font */
+    border-bottom: 5px solid #3b1f0f; /* Deep Brown Border */
+}
+
+/* Header */
+#header {
+    padding: 15px 0;
+    background: url('wood-texture.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.main-logo img {
+    max-width: 160px;
+    filter: sepia(30%) contrast(90%);
+}
+
+/* Navigation Bar */
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    position: relative;
+    margin-right: 20px;
+}
+
+.menu-item a {
+    color: #f5e6cc;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 12px 20px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.menu-item:hover > a,
+.menu-item.active > a {
+    color: #d1a66a; /* Antique Gold Accent */
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom: 2px solid #d1a66a;
+}
+
+/* Dropdown Menu */
+.menu-item.has-sub ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #3b1f0f;
+    width: 200px;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.menu-item.has-sub:hover ul {
+    display: block;
+}
+
+.menu-item.has-sub ul li {
+    padding: 10px 20px;
+}
+
+.menu-item.has-sub ul li a {
+    color: #f5e6cc;
+    font-size: 14px;
+}
+
+.menu-item.has-sub ul li:hover {
+    background: #5a3a1a;
+}
+
+/* Account Dropdown */
+.right-element {
+    display: flex;
+    align-items: center;
+}
+
+.user-account {
+    color: #f5e6cc;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.user-account:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-menu {
+    background: #3b1f0f;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu .dropdown-item {
+    color: #f5e6cc;
+    font-size: 14px;
+    padding: 12px 20px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #5a3a1a;
+}/* Smaller and Compact Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto; /* Center the search bar horizontally */
+    padding: 5px;
+    margin-right: 20px;
+    max-width: 400px; /* Reduce the width for a smaller look */
+    background: linear-gradient(135deg, #5a3a1a, #3b1f0f); /* Gradient background */
+    border-radius: 20px; /* Rounded edges */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative; /* For positioning the search icon */
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 8px 12px 8px 35px; /* Compact padding for the input field */
+    font-size: 12px; /* Smaller font size */
+    border: none;
+    margin-right: 2px;
+    border-radius: 20px; /* Match the container's rounded edges */
+    outline: none;
+    color: #3b1f0f; /* Deep Brown Text */
+    background: #f5e6cc; /* Warm Cream Background */
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #a89b84; /* Muted Cream Placeholder */
+    font-style: italic; /* Add a modern touch */
+}
+
+.search-bar button {
+    padding: 8px 15px; /* Compact padding for the button */
+    font-size: 12px; /* Smaller font size */
+    font-weight: bold;
+    color: #f5e6cc; /* Warm Cream Text */
+    background: #d1a66a; /* Antique Gold Button */
+    border: none;
+    border-radius: 20px; /* Match the container's rounded edges */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: -5px; /* Slight overlap with the input field */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Add depth to the button */
+}
+
+.search-bar button:hover {
+    background: #e0b877; /* Lighter Gold Accent */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.search-bar .search-icon {
+    position: absolute;
+    left: 12px; /* Adjust position for the smaller size */
+    color: #a89b84; /* Muted Cream Icon Color */
+    font-size: 16px; /* Smaller icon size */
+    pointer-events: none; /* Prevent interaction with the icon */
+}
+/* Responsive Design */
+@media (max-width: 992px) {
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-item {
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu-item a {
+        width: 100%;
+        display: block;
+        padding: 12px 20px;
+    }
+
+    .menu-item.has-sub ul {
+        position: static;
+        width: 100%;
+    }
+
+    .search-box {
+        position: static;
+        width: 100%;
+        display: block;
+    }
+
+    .search-box .search-input {
+        width: 100%;
+    }
+}

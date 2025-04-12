@@ -1,0 +1,183 @@
+/* Section Header */
+#cart .section-header .title,
+#library .section-header .title,
+#checkout .section-header .title {
+    font-size: 18px;
+    color: #d1a66a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+#cart .section-header .section-title,
+#library .section-header .section-title,
+#checkout .section-header .section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 32px;
+    color: #3b1f0f;
+    margin-top: 10px;
+}
+
+/* Common List Wrapper */
+.cart-list,
+#checkout,
+#library {
+    background-color: #f5e6cc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(59, 31, 15, 0.2);
+    font-family: 'Merriweather', serif;
+}
+
+/* Unified Card Styles for Cart, Checkout, and Library */
+.cart-item,
+.product-item {
+    background: #fff9f0;
+    border: 1px solid #d1a66a;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 10px;
+    box-shadow: 0px 4px 12px rgba(59, 31, 15, 0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-item:hover,
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.cart-item-style,
+.product-style {
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Book/Image */
+.cart-item-image,
+.product-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    border-bottom: 1px solid #e0b877;
+    margin-bottom: 10px;
+}
+
+/* Title */
+.cart-item figcaption h5,
+.book-title {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b1f0f;
+    margin-top: 10px;
+}
+
+/* Description and Author */
+.cart-item figcaption p,
+.cart-item figcaption .text-secondary,
+.book-author,
+.book-description,
+figcaption p {
+    font-size: 14px;
+    color: #7a6953;
+    margin-bottom: 5px;
+}
+
+/* Price */
+.cart-item .item-price,
+.product-item .item-price,
+.book-price .text-success {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c6e49;
+    margin-top: 5px;
+}
+
+/* Button Areas */
+.cart-item-actions,
+.product-item .btn {
+    margin-top: auto;
+}
+
+/* Buttons */
+.cart-item-actions .btn,
+.product-item .btn,
+.remove-from-cart,
+#pay-button {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 25px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+}
+
+/* Primary Button */
+.btn-primary,
+#pay-button {
+    background-color: #d1a66a;
+    color: #3b1f0f;
+    border: none;
+}
+
+.btn-primary:hover,
+#pay-button:hover {
+    background-color: #e0b877;
+    transform: scale(1.05);
+}
+
+/* Danger Button (Remove) */
+.cart-item-actions .btn-danger,
+.remove-from-cart {
+    background-color: #c0392b;
+    color: #fff;
+    border: none;
+}
+
+.cart-item-actions .btn-danger:hover,
+.remove-from-cart:hover {
+    background-color: #e74c3c;
+}
+
+/* Success Button (Free checkout) */
+.cart-summary .btn-success {
+    background-color: #2c6e49;
+    color: #f5e6cc;
+    border: none;
+}
+
+.cart-summary .btn-success:hover {
+    background-color: #3d8b63;
+}
+
+/* Cart Summary */
+.cart-summary {
+    border-top: 2px dashed #d1a66a;
+    padding-top: 15px;
+}
+
+.cart-summary h4 {
+    font-size: 20px;
+    color: #3b1f0f;
+}
+
+/* Empty Cart/Library Message */
+.text-center.text-muted,
+.text-muted {
+    font-size: 16px;
+    font-style: italic;
+    color: #7a6953;
+}
+
+.text-success {
+    font-weight: bold;
+    font-size: 15px;
+}

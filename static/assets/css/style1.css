@@ -1,0 +1,429 @@
+.billboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4a2c14; /* Rich Dark Brown */
+  color: #f5e6cc; /* Warm Cream Color */
+  font-family: 'Merriweather', serif; /* Classic Library Font */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  margin-top: 30px;
+  gap: 20px;
+  border-bottom: 5px solid #3b1f0f; /* Deep Brown Border */
+}
+
+.banner-image {
+  width: 40%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  filter: sepia(30%) contrast(90%);
+}
+
+.banner-content {
+  width: 55%;
+  text-align: left;
+}
+
+.banner-title {
+  font-size: 28px;
+  color: #d1a66a; /* Antique Gold Accent */
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  font-size: 16px;
+  color: #f5e6cc; /* Warm Cream */
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .billboard {
+      flex-direction: column;
+      text-align: center;
+      padding: 15px;
+  }
+
+  .banner-image,
+  .banner-content {
+      width: 100%;
+  }
+}
+
+/* Button Wrapper */
+.btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 0;
+}
+
+/* Button Styling (Text Only) */
+.btn-accent-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: #d1a66a; /* Antique Gold */
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-accent-arrow:hover {
+  color: #e0b877; /* Lighter Gold Accent */
+  text-decoration: underline;
+}
+
+/* Icon Styling */
+.btn-accent-arrow .icon {
+  margin-left: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-accent-arrow:hover .icon {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn-wrap {
+      justify-content: center;
+  }
+}
+
+
+/* Featured Books Section */
+#featured-books {
+  background: #4a2c14; /* Rich Dark Brown */
+  color: #f5e6cc; /* Warm Cream */
+  padding: 50px 0;
+}
+
+.section-header .title span {
+  color: #d1a66a; /* Antique Gold */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Book Grid Layout */
+.product-item {
+  background: #3b1f0f; /* Deep Brown */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Book Cover */
+.book-cover {
+  width: 100%;
+  height: 400px; /* Increased Height */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  background: #5a3a1a;
+}
+
+/* Book Information */
+.book-info {
+  margin-top: 15px;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f5e6cc;
+}
+
+.book-author {
+  font-size: 14px;
+  color: #d1a66a; /* Antique Gold */
+}
+
+.item-price {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e0b877;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f5e6cc;
+  background: #d1a66a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background: #e0b877;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .book-cover {
+      height: 250px; /* Adjust for smaller screens */
+  }
+  .section-title {
+      font-size: 24px;
+  }
+}
+
+/* Popular Books Section */
+#popular-books {
+  background: #4a2c14; /* Rich Dark Brown */
+  color: #f5e6cc; /* Warm Cream */
+  padding: 50px 0;
+}
+
+.section-header .title span {
+  color: #d1a66a; /* Antique Gold */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Book Grid Layout */
+.product-item {
+  background: #3b1f0f; /* Deep Brown */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Book Cover */
+.book-cover {
+  width: 100%;
+  height: 400px; /* Increased Height */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  background: #5a3a1a;
+}
+
+/* Book Information */
+.book-info {
+  margin-top: 15px;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f5e6cc;
+}
+
+.book-author {
+  font-size: 14px;
+  color: #d1a66a; /* Antique Gold */
+}
+
+.item-price {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #e0b877;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f5e6cc;
+  background: #d1a66a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background: #e0b877;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .book-cover {
+      height: 250px; /* Adjust for smaller screens */
+  }
+  .section-title {
+      font-size: 24px;
+  }
+}
+
+
+/* Quotation Section */
+#quotation {
+  background-color: #4a2c14; /* Rich Dark Brown */
+  color: #f5e6cc; /* Warm Cream */
+  font-family: 'Merriweather', serif;
+  padding: 50px 20px;
+  text-align: center;
+  border-bottom: 5px solid #3b1f0f;
+}
+
+#quotation .section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #d1a66a; /* Antique Gold */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#quotation blockquote {
+  font-size: 20px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-left: 5px solid #d1a66a;
+  display: inline-block;
+  max-width: 80%;
+  line-height: 1.6;
+  border-radius: 10px;
+}
+
+#quotation .author-name {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d1a66a;
+}
+
+/* Latest Blog Section */
+#latest-blog {
+  background: #3b1f0f; /* Dark Wood Brown */
+  color: #f5e6cc;
+  padding: 50px 0;
+  font-family: 'Merriweather', serif;
+}
+
+#latest-blog .section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#latest-blog .title span {
+  font-size: 16px;
+  color: #d1a66a;
+  text-transform: uppercase;
+}
+
+#latest-blog .section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #d1a66a;
+}
+
+#latest-blog .column {
+  background: #4a2c14;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+#latest-blog .column:hover {
+  transform: translateY(-5px);
+}
+
+#latest-blog .post-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#latest-blog .post-item {
+  margin-top: 15px;
+}
+
+#latest-blog .meta-date {
+  font-size: 14px;
+  color: #d1a66a;
+  font-weight: bold;
+}
+
+#latest-blog h3 a {
+  color: #f5e6cc;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+#latest-blog h3 a:hover {
+  color: #d1a66a;
+}
+
+#latest-blog .social-links ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+#latest-blog .social-links ul li {
+  margin-right: 10px;
+}
+
+#latest-blog .social-links ul li a {
+  color: #f5e6cc;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+#latest-blog .social-links ul li a:hover {
+  color: #d1a66a;
+}
+
+.btn-outline-accent {
+  color: #d1a66a;
+  border: 2px solid #d1a66a;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn-outline-accent:hover {
+  background: #d1a66a;
+  color: #3b1f0f;
+}
+
+

@@ -1,0 +1,96 @@
+/* Footer Styles */
+#footer {
+    background-color: #3b1f0f; /* Deep brown */
+    color: #f5e6cc; /* Warm cream */
+    padding: 40px 0;
+    font-family: 'Merriweather', serif;
+}
+
+.footer-menu h5 {
+    color: #d1a66a; /* Antique Gold */
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer-menu .menu-list {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu .menu-item {
+    margin-bottom: 10px; /* Spacing between menu items */
+}
+
+.footer-menu .menu-item a {
+    color: #f5e6cc;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    display: block; /* Ensures items are stacked in one column */
+    padding: 5px 0; /* Adds spacing for better clickability */
+}
+
+.footer-menu .menu-item a:hover {
+    color: #d1a66a; /* Gold accent */
+}
+
+/* Footer Logo and Description */
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 15px;
+    filter: sepia(20%) contrast(90%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-menu {
+        text-align: center; /* Centering on smaller screens */
+    }
+
+    .footer-menu .menu-list {
+        display: block; /* Ensures vertical stacking */
+    }
+}
+
+/* Remove list bullets globally within the footer */
+.footer-menu .menu-list,
+.footer-menu .menu-list li {
+    list-style: none;
+}
+
+/* Footer Bottom Styles */
+#footer-bottom {
+    background-color: #2a160b; /* Darker brown for contrast */
+    color: #f5e6cc; /* Warm cream */
+    padding: 15px 0;
+    font-family: 'Merriweather', serif;
+    text-align: center; /* Center align content */
+}
+
+#footer-bottom .copyright p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#footer-bottom .copyright strong {
+    color: #d1a66a; /* Gold accent */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #footer-bottom .copyright {
+        text-align: center;
+    }
+
+    .social-links {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .social-links ul {
+        justify-content: center;
+    }
+}

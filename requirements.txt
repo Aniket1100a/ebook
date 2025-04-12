@@ -1,31 +1,4 @@
 
-aext-assistant-server @ file:///croot/aext-assistant-server_1734639753335/work
-aext-core @ file:///croot/aext-core_1734637784667/work
-aext-core-server @ file:///croot/aext-core-server_1734635055789/work
-aext-panels @ file:///croot/aext-panels_1734642945502/work
-aext-panels-server @ file:///croot/aext-panels-server_1734639706592/work
-aext-project-filebrowser-server @ file:///croot/aext-project-filebrowser-server_1734687619007/work/backend_lib/project_filebrowser
-aext-share-notebook @ file:///croot/aext-share-notebook_1734642860995/work
-aext-share-notebook-server @ file:///croot/aext-share-notebook-server_1734639647810/work
-aext-shared @ file:///croot/aext-shared_1734622510702/work
-aext-toolbox @ file:///croot/anaconda-toolbox_1734694557658/work
-aiobotocore @ file:///croot/aiobotocore_1714464387507/work
-aiohappyeyeballs @ file:///croot/aiohappyeyeballs_1725434011349/work
-aiohttp @ file:///croot/aiohttp_1725527756643/work
-aioitertools @ file:///tmp/build/80754af9/aioitertools_1607109665762/work
-aiosignal @ file:///tmp/build/80754af9/aiosignal_1637843061372/work
-alabaster @ file:///croot/alabaster_1718201490751/work
-alembic @ file:///croot/alembic_1729532425530/work
-altair @ file:///work/perseverance-python-buildout/croot/altair_1698866618831/work
-anaconda-anon-usage @ file:///croot/anaconda-anon-usage_1710965072196/work
-anaconda-catalogs @ file:///work/perseverance-python-buildout/croot/anaconda-catalogs_1701755653155/work
-anaconda-cli-base @ file:///croot/anaconda-cli-base_1731510901721/work
-anaconda-client @ file:///croot/anaconda-client_1731430881921/work
-anaconda-cloud-auth @ file:///croot/anaconda-cloud-auth_1731430835928/work
-anaconda-navigator @ file:///croot/anaconda-navigator_1727709691943/work
-anaconda-project @ file:///croot/anaconda-project_1706049196717/work
-annotated-types @ file:///croot/annotated-types_1709542908624/work
-anyio @ file:///croot/anyio_1706220167567/work
 appdirs==1.4.4
 archspec @ file:///croot/archspec_1709217642129/work
 argcomplete==3.6.0
